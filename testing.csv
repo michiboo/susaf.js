@@ -1,5 +1,5 @@
-'individual', 1, 'No privacy',1
-'technical', 2, 'Scalable', 1
-'social', 3, 'poverty', 0
-'economical', 1, 'high GDP', 1
-'environmental', 2, 'CO2', 0
+individual, 1, No privacy,1
+technical, 2, Scalable, 1
+social, 3, poverty, 0
+economical, 1, high GDP, 1
+environmental, 2, CO2, 0

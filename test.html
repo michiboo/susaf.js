@@ -4,27 +4,52 @@
     <script type = "text/javascript" src="index.js">
     </script>  
     <script>
+        var data = []
         function add(){
 
-var a = [['individual', 1, 'No privacy',], ['technical', 2, 'Scalable', 1], ['social', 3, 'poverty', 0], ['economical', 1, 'high GDP', 1], ['environmental', 2, 'CO2', 0]]
+var a = data
 for(var i = 0; i < a.length; i++)
     addNote(a[i][0], a[i][1], a[i][2], a[i][3])
 
 
 }
     </script>
-    
     </head>  
+
     <body>  
     <p>Click the following button to see the function in action</p>  
     <canvas id="canvas"> </canvas>
     <input type = "button" onclick = "createBaseSusaf()" value = "Display">  
 
     <input type = "button" onclick = "add()" value = "add">
-    <input type="text" id="dim" name="dimension">
-    <input type="text" id="order" name="order">
-    <input type="text" id="text" name="text">
-    <input type="text" id="pos" name="positive or negative : 1 or 0">
-    <input >  
+    <form id="myForm">
+        <input type="file" id="csvFile" accept=".csv" />
+        <br />
+        <input type="submit" value="Submit" />
+      </form>
+      <script>
+        const myForm = document.getElementById("myForm");
+        const csvFile = document.getElementById("csvFile");
+    
+        myForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+          const input = csvFile.files[0];
+          const reader = new FileReader();
+    
+          reader.onload = function (e) {
+            const text = e.target.result;
+            var lines = text.split(/\r\n|\n/);
+    for(var line = 0; line < lines.length-1; line++){
+        var tmp = lines[line].split(',')
+        tmp = [tmp[0], parseInt(tmp[1]), tmp[2], parseInt(tmp[3])]  
+        data.push(tmp)
+    }
+        console.log(data)
+          };
+        
+          reader.readAsText(input);
+
+        });
+      </script>
     </body>  
     </html>  
