@@ -1,3 +1,4 @@
+existedPoints = {}
 
 function createBaseSusaf() {
     var canvas = document.getElementById("canvas"),
@@ -19,10 +20,26 @@ function createBaseSusaf() {
 function addNote(dimension, order, text, positive){
     var canvas = document.getElementById("canvas"),
     ctx = canvas.getContext("2d");
-    dimensions = {"social": [], "individual": [[566,667], [252, 1071], [883, 1071]], "environmental": [], "technical":[], "economical": []}
-    var r = randomPointTri(dimensions[dimension][0], dimensions[dimension][1], dimensions[dimension][2])
-    ctx.font = '20px serif';
-    if(positive)
+    dimensions = {"social":[[566, 633], [57, 471], [254, 1070]], "individual": [[566,667], [252, 1071], [883, 1071]], "environmental": [[882,1070],[567,635],[1077,468]], "technical":[[1077,468],[567,635],[566,99]], "economicalal": [[567,637], [56,466], [567,95]]}
+    dimensions = {"economical1" : [[566,360],[567,96],[305,550]],
+        "technical1" : [[566,360],[830,550],[567,360]],
+        "economical2" : [[305,550],[568,360],[165,503],[568,210]],
+        "technical2" : [[568,360],[830,550],[968,504],[568,212]],
+        "economical3" : [[165,503],[56,466],[568,214],[568,100]],
+        "technical3" : [[567,212],[567,98],[970,505],[1075,468]],
+        "individual1" : [[566, 635], [406, 863], [728, 859]],
+        "individual2" : [[406, 863], [728, 859], [319, 981], [817, 979]],
+        "individual3" : [[319, 981], [817, 979], [256, 1074], [878, 1070]],
+        "social1" : [[566, 635], [304, 551], [406, 857]],
+        "social2" : [[304, 551], [406, 857], [167, 502], [317, 981]],
+        "social3" : [[167, 502], [317, 981], [51, 473], [256, 1074]],
+        "environmental1" : [[566, 635],  [825, 551],  [733, 859]],
+        "environmental2" : [[825, 551], [733, 859], [967, 504], [815, 975]],
+        "environmental3" : [[815, 975],[967, 504], [878, 1070], [1074, 470]]
+    }
+    var r = randomPointTri(dimensions[dimension+order][0], dimensions[dimension+order][1], dimensions[dimension+order][2])
+    ctx.font = '15px serif';
+    if(positive==1)
         ctx.fillStyle = "#00FF00"
     else
     ctx.fillStyle = "#FF0000"
@@ -62,3 +79,5 @@ function randomPointTri(A,B, C)
 function randomInRange(min, max) {
     return Math.random() < 0.5 ? ((1-Math.random()) * (max-min) + min) : (Math.random() * (max-min) + min);
   }
+
+  

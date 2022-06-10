@@ -2,15 +2,25 @@
     <head>  
     
     <script type = "text/javascript" src="index.js">
-   
     </script>  
+    <script>
+        function add(){
+
+var a = [['individual', 1, 'No privacy',], ['technical', 2, 'Scalable', 1], ['social', 3, 'poverty', 0], ['economical', 1, 'high GDP', 1], ['environmental', 2, 'CO2', 0]]
+for(var i = 0; i < a.length; i++)
+    addNote(a[i][0], a[i][1], a[i][2], a[i][3])
+
+
+}
+    </script>
+    
     </head>  
     <body>  
     <p>Click the following button to see the function in action</p>  
     <canvas id="canvas"> </canvas>
-    <input type = "button" onclick = " createBaseSusaf()" value = "Display">  
+    <input type = "button" onclick = "createBaseSusaf()" value = "Display">  
 
-    <input type = "button" onclick = " addNote('individual', 1, 'No privacy', '')" value = "add">
+    <input type = "button" onclick = "add()" value = "add">
     <input type="text" id="dim" name="dimension">
     <input type="text" id="order" name="order">
     <input type="text" id="text" name="text">
